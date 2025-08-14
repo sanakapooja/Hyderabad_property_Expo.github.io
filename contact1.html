@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Hyderabad Property Expo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #002244;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+      animation: slideDown 1s ease forwards;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+    }
+
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .contact-form-section,
+    .contact-info-section {
+      flex: 1 1 450px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      animation: fadeInUp 1s ease;
+    }
+
+    .contact-form-section h2,
+    .contact-info-section h2 {
+      margin-bottom: 20px;
+      color: #002244;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border 0.3s;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      border-color: #0077cc;
+      outline: none;
+    }
+
+    form button {
+      background: #0077cc;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    form button:hover {
+      background: #005fa3;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    ul li {
+      margin: 10px 0;
+      font-size: 1rem;
+    }
+
+    .map-container {
+      margin-top: 20px;
+      border-radius: 8px;
+      overflow: hidden;
+      animation: zoomIn 1.2s ease;
+    }
+
+    /* Animations */
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0px);
+        opacity: 1;
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .contact-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div style="position: absolute; left: 20px; transform: translateY(-50%);">
+    <a href="home.html" style="color: #ff9800; text-decoration: none; font-weight: bold;">← Back to Home</a>
+  </div>
+    <h1>Contact Us</h1>
+    <p>We’re here to assist you. Let’s connect!</p>
+  </header>
+
+  <main class="contact-container">
+    <!-- Contact Form -->
+    <section class="contact-form-section">
+      <h2>Send Us a Message</h2>
+      <form id="contactForm">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <p id="formMessage"></p>
+    </section>
+
+    <!-- Contact Info -->
+    <section class="contact-info-section">
+      <h2>Contact Information</h2>
+      <ul>
+        <li><strong>Phone:</strong> +91 98765 43210</li>
+        <li><strong>Email:</strong> contact@hydpropertyexpo.in</li>
+        <li><strong>Office:</strong> T-Hub, IIIT-H Campus, Gachibowli, Hyderabad, Telangana</li>
+      </ul>
+
+      <!-- Map Embed -->
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.1670062648257!2d78.38420677407849!3d17.442276901236205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93e063ac7ecf%3A0x55a8f4b23662d1a3!2sT-Hub!5e0!3m2!1sen!2sin!4v1721844121504!5m2!1sen!2sin"
+          width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <!-- JavaScript for Form Submission -->
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+
+      if (!name || !email || !message) {
+        showMessage("Please fill out all fields.", "red");
+        return;
+      }
+
+      showMessage("Message sent successfully! We'll get back to you shortly.", "green");
+
+      form.reset();
+    });
+
+    function showMessage(text, color) {
+      const msg = document.getElementById("formMessage");
+      msg.textContent = text;
+      msg.style.color = color;
+      msg.style.marginTop = "10px";
+      msg.style.fontWeight = "600";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Account - Hyderabad Property Expo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f8;
+      color: #333;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #002244;
+    }
+
+    .tab-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .tab-buttons button {
+      padding: 12px 25px;
+      border: none;
+      cursor: pointer;
+      background: #0077cc;
+      color: white;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+
+    .tab-buttons button.active,
+    .tab-buttons button:hover {
+      background: #005fa3;
+    }
+
+    .tab-content {
+      display: none;
+      animation: slideUp 0.6s ease-in-out;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    button.submit {
+      background: #28a745;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button.submit:hover {
+      background: #1e7e34;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #e8f0fe;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      animation: zoomIn 0.7s ease;
+    }
+
+    .card h3 {
+      color: #002244;
+      margin-bottom: 10px;
+    }
+
+    .log-list {
+      margin-top: 10px;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .log-list li {
+      padding: 8px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .tab-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div style="position: absolute; left: 20px; transform: translateY(-50%);">
+    <a href="home.html" style="color: #ff9800; text-decoration: none; font-weight: bold;">← Back to Home</a>
+  </div>
+    <h2>User Account Area</h2>
+
+    <div class="tab-buttons">
+      <button class="active" onclick="showTab('login')">Login</button>
+      <button onclick="showTab('register')">Register</button>
+      <button onclick="showTab('dashboard')">Dashboard</button>
+      <button onclick="showTab('profile')">Edit Profile</button>
+      <button onclick="showTab('alerts')">Preferences</button>
+      <button onclick="showTab('logs')">Activity Logs</button>
+    </div>
+
+    <!-- Login -->
+    <div id="login" class="tab-content active">
+      <h3>Login</h3>
+      <input type="email" placeholder="Email" />
+      <input type="password" placeholder="Password" />
+      <button class="submit">Login</button>
+    </div>
+
+    <!-- Register -->
+    <div id="register" class="tab-content">
+      <h3>Register</h3>
+      <input type="text" placeholder="Full Name" />
+      <input type="email" placeholder="Email" />
+      <input type="password" placeholder="Password" />
+      <input type="password" placeholder="Confirm Password" />
+      <button class="submit">Create Account</button>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="tab-content">
+      <h3>Your Dashboard</h3>
+      <div class="dashboard">
+        <div class="card">
+          <h3>Saved Properties</h3>
+          <p>You have 5 properties saved.</p>
+        </div>
+        <div class="card">
+          <h3>Expo Registrations</h3>
+          <p>Registered for 3 expos.</p>
+        </div>
+        <div class="card">
+          <h3>Inquiries</h3>
+          <p>2 ongoing inquiries.</p>
+        </div>
+        <div class="card">
+          <h3>Account Status</h3>
+          <p>Verified & Active</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile -->
+    <div id="profile" class="tab-content">
+      <h3>Edit Profile</h3>
+      <input type="text" placeholder="Full Name" />
+      <input type="email" placeholder="Email" />
+      <input type="text" placeholder="Phone Number" />
+      <textarea placeholder="Address..."></textarea>
+      <button class="submit">Update Profile</button>
+    </div>
+
+    <!-- Alerts / Preferences -->
+    <div id="alerts" class="tab-content">
+      <h3>Email & Alert Preferences</h3>
+      <label><input type="checkbox" checked> Receive new property alerts</label><br><br>
+      <label><input type="checkbox" checked> Receive expo reminders</label><br><br>
+      <label><input type="checkbox"> Weekly newsletter</label><br><br>
+      <button class="submit">Save Preferences</button>
+    </div>
+
+    <!-- Logs -->
+    <div id="logs" class="tab-content">
+      <h3>Recent Activity Logs</h3>
+      <ul class="log-list">
+        <li>📌 Saved property at Gachibowli (23 Jul)</li>
+        <li>📝 Registered for Luxury Expo 2025 (22 Jul)</li>
+        <li>📬 Inquiry sent to Prestige Group (21 Jul)</li>
+        <li>🧾 Profile updated (19 Jul)</li>
+        <li>✔️ Registered account (15 Jul)</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function showTab(tabId) {
+      const tabs = document.querySelectorAll('.tab-content');
+      const buttons = document.querySelectorAll('.tab-buttons button');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>

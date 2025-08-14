@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expo Events</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f5f7fb;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #1b1b1b;
+      color: #fff;
+      padding: 15px 40px;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      animation: slideDown 0.6s ease-in-out;
+    }
+   
+    header h2{
+      margin-left: 190px;
+      font-size: 27px;
+    }
+    @keyframes slideDown {
+      from { top: -60px; opacity: 0; }
+      to { top: 0; opacity: 1; }
+    }
+
+    .container {
+      padding: 100px 40px 60px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .accordion-item {
+      background: #fff;
+      margin: 15px 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-item:hover {
+      transform: scale(1.02);
+    }
+
+    .title {
+      padding: 18px 20px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.1rem;
+      position: relative;
+      background: linear-gradient(90deg, #3498db, #6dd5fa);
+      color: white;
+    }
+
+    .title::after {
+      content: '+';
+      position: absolute;
+      right: 20px;
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .title.active::after {
+      transform: rotate(45deg);
+    }
+
+    .content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      background: #fafafa;
+      padding: 0 20px;
+    }
+
+    .content p {
+      padding: 15px 0 5px;
+      color: #333;
+    }
+
+    .register {
+      background: #ff9800;
+      color: #fff;
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      margin: 10px 0 20px;
+      transition: background 0.3s ease;
+    }
+
+    .register:hover {
+      background: #e68900;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0 }
+      to { opacity: 1 }
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 30px 25px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      animation: popUp 0.4s ease;
+    }
+
+    @keyframes popUp {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-content h3 {
+      margin-bottom: 20px;
+      color: #333;
+      text-align: center;
+    }
+
+    .modal-content input, .modal-content select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .modal-content button {
+      width: 100%;
+      padding: 10px;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .close {
+      position: absolute;
+      right: 25px;
+      top: 15px;
+      font-size: 22px;
+      cursor: pointer;
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      .title {
+        font-size: 1rem;
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div style="position: absolute; left: 20px; top: 20px; transform: translateY(-50%);">
+    <a href="home.html" style="color: #ff9800; text-decoration: none; font-weight: bold;">← Back to Home</a>
+  </div>
+  <h2>Expo Events</h2>
+</header>
+ 
+<!-- Modal Form -->
+<div id="registrationModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h3>Register for Event</h3>
+    <form onsubmit="handleSubmit(event)">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Email Address" required />
+      <input type="tel" placeholder="Phone Number" required />
+      <select required>
+        <option value="">Select Role</option>
+        <option>Buyer</option>
+        <option>Investor</option>
+        <option>Agent</option>
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+
+<!-- Inside .container -->
+<div class="container">
+  <h2 style="text-align:center; margin-bottom: 25px; font-weight: 600; color: #333;">Upcoming Events</h2>
+
+  <div class="accordion-item">
+    <div class="title">Aug 10 – Investment Seminar</div>
+    <div class="content">
+      <p>Time: 10:00 AM–12:00 PM • Virtual Zoom link</p>
+      <a class="register" onclick="openModal()">Register Now</a>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="title">Aug 17 – Virtual Tour</div>
+    <div class="content">
+      <p>Time: 4:00 PM–5:30 PM • Watch online</p>
+      <a class="register" onclick="openModal()">Register Now</a>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="title">Aug 24 – Developer Meetup</div>
+    <div class="content">
+      <p>Time: 6:00 PM–8:00 PM • Jubilee Hills Club</p>
+      <a class="register" onclick="openModal()">Register Now</a>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="title">Aug 27 – Panel Discussion with Industry Experts</div>
+    <div class="content">
+      <p>Time: 11:00 AM–1:00 PM • Hitex Hall A, Hyderabad</p>
+      <p>Join a panel of seasoned investors, developers, and legal experts discussing the current trends and regulations in Hyderabad real estate.</p>
+      <a class="register" onclick="openModal()">Reserve Your Spot</a>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="title">Sep 02 – Real Estate Workshop: Buying Your First Home</div>
+    <div class="content">
+      <p>Time: 2:00 PM–4:30 PM • Banjara Hills Convention Center</p>
+      <p>Learn step-by-step guidance on buying property, legal due diligence, financing, and tax benefits. Perfect for first-time home buyers.</p>
+      <a class="register" onclick="openModal()">Join Workshop</a>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  // Accordion toggle
+  document.querySelectorAll('.title').forEach(title => {
+    title.addEventListener('click', () => {
+      title.classList.toggle('active');
+      const content = title.nextElementSibling;
+      content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
+    });
+  });
+
+  // Modal functions
+  function openModal() {
+    document.getElementById('registrationModal').style.display = 'block';
+  }
+
+  function closeModal() {
+    document.getElementById('registrationModal').style.display = 'none';
+  }
+
+  // On submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert('Thank you for registering! We will contact you shortly.');
+    closeModal();
+  }
+
+  // Close modal on outside click
+  window.onclick = function(event) {
+    const modal = document.getElementById('registrationModal');
+    if (event.target === modal) {
+      closeModal();
+    }
+  }
+</script>
+
+</body>
+</html>

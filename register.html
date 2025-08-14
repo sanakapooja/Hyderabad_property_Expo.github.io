@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Property Detail - Hyderabad Property Expo</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .property-overview h1 {
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 20px;
+      animation: fadeInDown 1s ease;
+    }
+
+    .image-gallery {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .image-gallery img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .image-gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .virtual-tour {
+      display: block;
+      text-align: center;
+      margin: 20px auto 0;
+      font-size: 18px;
+      background: #e91e63;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      width: fit-content;
+      animation: bounceIn 1.5s ease;
+    }
+
+    .details ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .details li {
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .contact-agent form {
+      display: grid;
+      gap: 15px;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .contact-agent input,
+    .contact-agent textarea {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .contact-agent button {
+      padding: 12px;
+      background: #28a745;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .contact-agent button:hover {
+      background: #218838;
+    }
+
+    .nearby-map iframe {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .related-properties .property-grid {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+
+    .property-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      width: 300px;
+      transition: transform 0.3s ease;
+    }
+
+    .property-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .property-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .property-card h3 {
+      margin: 15px;
+      font-size: 18px;
+    }
+
+    .property-card p {
+      margin: 0 15px 10px;
+      color: #777;
+    }
+
+    .property-card a {
+      display: block;
+      background: #007bff;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      text-decoration: none;
+      border-top: 1px solid #eee;
+    }
+
+    .property-card a:hover {
+      background: #0056b3;
+    }
+
+    @keyframes fadeInDown {
+      0% {opacity: 0; transform: translateY(-30px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes bounceIn {
+      0% {transform: scale(0.8); opacity: 0;}
+      60% {transform: scale(1.05); opacity: 1;}
+      100% {transform: scale(1);}
+    }
+
+    @media (max-width: 768px) {
+      .image-gallery {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .property-card {
+        width: 100%;
+      }
+    }
+
+
+
+  .back-home {
+  display: inline-block;
+  margin: 20px;
+  padding: 10px 20px;
+  background-color: #0d1b2a;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+.back-home:hover {
+  background-color: #1b263b;
+}
+
+  </style>
+</head>
+<body>
+ 
+  <a href="home.html" class="back-home">← Back to Home</a>
+
+  <!-- Property Overview -->
+  <section class="property-overview">
+    <h1>3BHK Luxury Apartment - Gachibowli</h1>
+    <div class="image-gallery">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-q7X9KWIXBxNc6sRe3n7ZLDENf_d3x1BuGg&s" alt="Property Image 1">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRcHykAQTgBSC9Dr1Lr0va9MIiKNibWa40BQ&s" alt="Property Image 2">
+    </div>
+    <a href="https://www.youtube.com/watch?v=6v2L2UGZJAM" target="_blank" class="virtual-tour">▶ Watch Virtual Tour</a>
+  </section>
+
+  <!-- Details Section -->
+  <section class="details">
+    <h2>Property Details</h2>
+    <ul>
+      <li><strong>Price:</strong> ₹85,00,000</li>
+      <li><strong>Size:</strong> 1560 Sq. Ft</li>
+      <li><strong>Location:</strong> Gachibowli, Hyderabad</li>
+      <li><strong>Builder:</strong> ABC Developers Pvt Ltd</li>
+      <li><strong>Amenities:</strong> Gym, Pool, Security, Children’s Park</li>
+      <li><strong>Floor Plan:</strong> <a href="#">Download PDF</a></li>
+    </ul>
+  </section>
+
+  <!-- Contact Developer / Agent -->
+  <section class="contact-agent">
+    <h2>Get in Touch</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="tel" placeholder="Phone Number" required />
+      <input type="email" placeholder="Email Address" />
+      <textarea placeholder="Your Message"></textarea>
+      <button type="submit">Submit Inquiry</button>
+    </form>
+  </section>
+
+  <!-- Nearby Facilities Map -->
+  <section class="nearby-map">
+    <h2>Nearby Facilities</h2>
+    <iframe src="https://www.google.com/maps?q=Gachibowli,Hyderabad&output=embed" height="300"></iframe>
+  </section>
+
+  <!-- Related Properties -->
+  <section class="related-properties">
+    <h2>Similar Listings</h2>
+    <div class="property-grid">
+      <div class="property-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQZq4b0L0dzxr-AfNijPY2fVoQol955Bc5Yg&s" alt="Related Property 1">
+        <h3>Villa in Jubilee Hills</h3>
+        <p>₹2.5 Cr • 2400 Sq. Ft</p>
+        <a href="details.html?id=2">View Details</a>
+      </div>
+      <div class="property-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8thmxNMyRGjkcT5YNbNbO-vZKd6Po-aQj4A&s" alt="Related Property 2">
+        <h3>2BHK Apartment - Hitech City</h3>
+        <p>₹65 Lakhs • 1200 Sq. Ft</p>
+        <a href="details.html?id=3">View Details</a>
+      </div>
+      <div class="property-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt5W8ZwmDbCiSnA1dVU-XvFDcK6ywFsbBzfQ&s" alt="Related Property 3">
+        <h3>Luxury Flat - Madhapur</h3>
+        <p>₹78 Lakhs • 1300 Sq. Ft</p>
+        <a href="details.html?id=4">View Details</a>
+      </div>
+    </div>
+  </section>
+
+
+  <script src="Js/register.js"></script>
+</body>
+</html>

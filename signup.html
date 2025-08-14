@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - Hyderabad Property Expo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0d1b2a, #1b263b);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .signup-container {
+      background: #1c2b3a;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+      width: 100%;
+      max-width: 420px;
+      animation: slideIn 1.5s ease-in-out;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #ffcc00;
+    }
+    input {
+      width: 100%;
+      padding: 14px 0px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+    button {
+      width: 100%;
+      padding: 12px ;
+      background: #ffcc00;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1em;
+      transition: 0.3s ease;
+      margin-left: 8px;
+    }
+    button:hover {
+      background: #e6b800;
+    }
+    p {
+      text-align: center;
+      margin-top: 15px;
+    }
+    p a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <h2>Sign Up</h2>
+    <form onsubmit="signUpUser(event)">
+      <input type="text" placeholder=" Full Name" required />
+      <input type="email" placeholder=" Email" required />
+      <input type="password" placeholder=" Password" required />
+      <input type="Confirm your password" placeholder=" Confirm your password" required/>
+      <button type="submit">Sign Up</button>
+      <p>Already have an account? <a href="login.html">Login</a></p>
+    </form>
+  </div>
+
+  <script>
+    function signUpUser(e) {
+      e.preventDefault();
+      // Dummy sign-up (replace with backend logic)
+      localStorage.setItem("userLoggedIn", "true");
+      alert("Registration successful!");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

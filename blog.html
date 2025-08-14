@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog & News - Hyderabad Property Expo</title>
+</head>
+<style>
+  /* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f3f6fb;
+  color: #333;
+  padding-bottom: 60px;
+}
+
+header {
+  background: #1b1b1b;
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  animation: fadeDown 1s ease-out;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+/* Blog Section */
+.blog-section {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.blog-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #1b1b1b;
+  animation: slideInLeft 1s ease-out;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* Card Design */
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: scale(0.95) translateY(20px);
+  transition: all 0.5s ease;
+  animation: zoomFade 0.7s forwards;
+}
+
+.card.delay-1 { animation-delay: 0.3s; }
+.card.delay-2 { animation-delay: 0.6s; }
+.card.delay-3 { animation-delay: 0.9s; }
+.card.delay-4 { animation-delay: 1.2s; }
+.card.delay-5 { animation-delay: 1.5s; }
+
+.card h3 {
+  font-size: 1.2rem;
+  color: #002244;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007acc;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.card a:hover {
+  color: #ff6600;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Animations */
+@keyframes fadeDown {
+  0% { transform: translateY(-20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  0% { transform: translateX(-50px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes zoomFade {
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  header h1, .blog-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .card h3 {
+    font-size: 1rem;
+  }
+
+  .card p {
+    font-size: 0.85rem;
+  }
+}
+
+</style>
+<body>
+  <header>
+    <div style="position: absolute; left: 20px; transform: translateY(-50%);">
+    <a href="home.html" style="color: #ff9800; text-decoration: none; font-weight: bold;">← Back to Home</a>
+  </div>
+    <h1>Hyderabad Property Expo - Blog & News</h1>
+  </header>
+
+  <section class="blog-section">
+    <h2>Latest Updates</h2>
+    <div class="cards">
+
+      <!-- Card 1 -->
+      <div class="card">
+        <h3>Hyderabad’s Real Estate Growth in 2025</h3>
+        <p>New IT corridors and metro expansion projects are fueling an unprecedented boom in the city's real estate sector.</p>
+        <a href="#">Read More →</a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card delay-1">
+        <h3>Top 5 Investment Tips for New Buyers</h3>
+        <p>From choosing the right location to understanding legal documentation—read these golden rules before investing.</p>
+        <a href="#">Read More →</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card delay-2">
+        <h3>Expo 2025: Highlights & What’s Coming</h3>
+        <p>Major developers, interactive booths, VR walk-throughs, and expert panels—catch up on what you missed.</p>
+        <a href="#">Read More →</a>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card delay-3">
+        <h3>Affordable Housing Projects in 2025</h3>
+        <p>Explore the newest budget-friendly housing ventures backed by government incentives and smart city missions.</p>
+        <a href="#">Read More →</a>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="card delay-4">
+        <h3>Is Now the Time to Invest in Jubilee Hills?</h3>
+        <p>Luxury meets opportunity — we break down why investors are eyeing this prime Hyderabad location in 2025.</p>
+        <a href="#">Read More →</a>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="card delay-5">
+        <h3>Upcoming Real Estate Regulations in Telangana</h3>
+        <p>New RERA compliance updates and what they mean for buyers and developers.</p>
+        <a href="#">Read More →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".card");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = "running";
+      }
+    });
+  }, { threshold: 0.2 });
+
+  cards.forEach(card => observer.observe(card));
+});
+
+  </script>
+</body>
+</html>

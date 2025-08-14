@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hyderabad Property Expo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+      color: #333;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #222;
+      color: #fff;
+      padding: 15px 40px;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      animation: slideDown 1s ease-in-out;
+    }
+    header h2{
+      margin-left: 120px;
+      font-size: 28px;
+    }
+
+    @keyframes slideDown {
+      from { top: -100px; }
+      to { top: 0; }
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff9800;
+    }
+
+    .hero {
+      margin-top: 80px;
+      height: 80vh;
+      background: url('https://images.unsplash.com/photo-1570129477492-45c003edd2be') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+    }
+
+    .section {
+      padding: 60px 40px;
+      animation: slideUp 1s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    @keyframes slideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .search-bar input, .search-bar select {
+      padding: 10px;
+      margin: 10px;
+      width: 200px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .featured {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .property {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      width: 300px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .property:hover {
+      transform: scale(1.05);
+    }
+
+    .property img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .testimonials {
+      background: #fff3e0;
+      padding: 40px;
+      border-radius: 10px;
+    }
+
+    .testimonial-slide {
+      font-style: italic;
+      animation: fadeIn 1.5s;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+  .search-bar button {
+  padding: 10px 20px;
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.search-bar button:hover {
+  background-color: #e67e00;
+}
+
+
+        @media (max-width: 768px) {
+      nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      nav a {
+        margin: 10px 0;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .property {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+  <div class="left-header">
+    <a href="home.html" class="back-link" style="text-decoration: none; color:#ff9800;">Back to Home</a>
+  </div>
+   <h2>Hyderabad Property Expo</h2>
+    <nav>
+      <a href="#search">Search</a>
+      <a href="#featured">Featured</a>
+      <a href="#events">Events</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>Welcome to Hyderabad Property Expo</h1>
+      <p>Your Gateway to Prime Real Estate</p>
+    </div>
+  </section>
+
+  <section id="search" class="section">
+    <h2>Find Your Dream Property</h2>
+    <div class="search-bar">
+      <input type="text" placeholder="Location" />
+      <select>
+        <option>Property Type</option>
+        <option>Apartment</option>
+        <option>Villa</option>
+        <option>Plot</option>
+        <option>Commercial</option>
+      </select>
+      <input type="number" placeholder="Max Price" />
+      <input type="number" placeholder="Min Area (sqft)" />
+      <button id="searchBtn">Search</button>
+    </div>  
+  </section>
+
+  <section id="featured" class="section">
+    <h2>Featured Listings</h2>
+    <div class="featured">
+      <div class="property">
+        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=800&q=80" alt="Apartment - Gachibowli">
+        <h4>2 BHK Apartment - Gachibowli</h4>
+        <p>₹85 Lakhs | 1200 sqft</p>
+      </div>
+      <div class="property">
+      <img src="https://signaturevillas.co.in/wp-content/uploads/2020/01/signature-villas-nv.jpg" alt="Luxury Villa - Jubilee Hills">
+
+        <h4>Luxury Villa - Jubilee Hills</h4>
+        <p>₹3.5 Cr | 3200 sqft</p>
+      </div>
+      <div class="property">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCppee_0aR2hs6B9uLEZYfdzkgqUcuwVkBCw&s" 
+       alt="Office – HITEC City">
+        <h4>Office Space - HITEC City</h4>
+        <p>₹2.2 Cr | 2000 sqft</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="events" class="section">
+    <h2>Upcoming Events</h2>
+    <ul>
+      <li><strong>Aug 10:</strong> Property Investment Webinar</li>
+      <li><strong>Aug 17:</strong> Live Virtual Tour - Gated Communities</li>
+      <li><strong>Aug 24:</strong> Developer Q&A Session</li>
+    </ul>
+  </section>
+
+  <section id="testimonials" class="section testimonials">
+    <h2>What People Say</h2>
+    <div id="testimonial" class="testimonial-slide">
+      “Hyderabad Property Expo helped me find my dream home in just a week!” – Ramesh K.
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+  <h2>Stay Updated</h2>
+  <p>Subscribe to our newsletter for the latest listings and offers:</p>
+  <input type="email" id="emailInput" placeholder="Enter your email" />
+  <button onclick="showPopup()">Subscribe</button>
+</section>
+
+<!-- Popup Modal -->
+<div id="popup" style="display:none; position:fixed; top:30%; left:50%; transform:translate(-50%, -50%); background:white; padding:30px 40px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.3); z-index:2000; text-align:center;">
+  <h3>Thank you for subscribing!</h3>
+  <p>We’ve added your email to our mailing list.</p>
+  <button onclick="closePopup()" style="margin-top:10px; padding:8px 16px; background:#ff9800; border:none; color:white; border-radius:5px;">Close</button>
+</div>
+
+
+  <footer>
+    <p>&copy; 2025 Hyderabad Property Expo. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Animate sections on scroll
+    const sections = document.querySelectorAll('.section');
+    window.addEventListener('scroll', () => {
+      const trigger = window.innerHeight * 0.9;
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < trigger) {
+          section.classList.add('visible');
+        }
+      });
+    });
+
+    // Rotating testimonials
+    const testimonials = [
+      "“Hyderabad Property Expo helped me find my dream home in just a week!” – Ramesh K.",
+      "“The live chat support was super helpful. Great platform!” – Sneha M.",
+      "“Best virtual expo experience I've had. So easy to compare properties.” – Arjun D."
+    ];
+    let i = 0;
+    setInterval(() => {
+      i = (i + 1) % testimonials.length;
+      document.getElementById("testimonial").innerText = testimonials[i];
+    }, 4000);
+
+    // Show popup on Subscribe
+function showPopup() {
+  const email = document.getElementById('emailInput').value;
+  if (!email || !email.includes('@')) {
+    alert("Thank's for subscribed");
+    return;
+  }
+  document.getElementById('popup').style.display = 'block';
+}
+
+// Close popup
+function closePopup() {
+  document.getElementById('popup').style.display = 'none';
+}
+
+  </script>
+
+</body>
+</html>

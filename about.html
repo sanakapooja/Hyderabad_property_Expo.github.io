@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Hyderabad Property Expo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #1b1b1b;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      animation: slideDown 1s ease-in-out;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    section {
+      padding: 50px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+
+    .mission, .team, .partners {
+      margin-bottom: 60px;
+      animation: fadeUp 1s ease-in-out;
+    }
+
+    @keyframes fadeUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .team-grid, .partners-grid {
+      display: grid;
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .team-grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .team-member {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .team-member:hover {
+      transform: translateY(-10px);
+    }
+
+    .team-member img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .team-member h4 {
+      margin: 10px 0 5px;
+      color: #2980b9;
+    }
+
+    .partners-grid {
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      align-items: center;
+    }
+
+    .partner {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .partner:hover {
+      transform: scale(1.05);
+    }
+
+    .partner img {
+      max-width: 100px;
+      margin-bottom: 10px;
+      height: 50px;
+    }
+
+    footer {
+      background: #1b1b1b;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 40px 15px;
+      }
+
+      .team-member img {
+        width: 70px;
+        height: 70px;
+      }
+
+      .partner img {
+        max-width: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div style="position: absolute; left: 20px; transform: translateY(-50%);">
+    <a href="home.html" style="color: #ff9800; text-decoration: none; font-weight: bold;">← Back to Home</a>
+  </div>
+    <h1>About Us</h1>
+    <p>Learn about our mission, team, and supporters</p>
+  </header>
+
+  <section class="mission">
+    <h2>Our Mission & Vision</h2>
+    <p>
+      At Hyderabad Property Expo, our mission is to bring together top real estate developers, homebuyers, investors, and agents under one roof. We aim to simplify property decisions by showcasing the best opportunities. Our vision is to be India’s premier real estate event, offering insight, innovation, and connections.
+    </p>
+    <br>
+    <h2>Our History</h2>
+    <p>
+      Founded in 2015, the Expo has grown from a small industry meetup to a full-scale real estate exhibition. With over 20,000 attendees annually, we’ve built a legacy of trust and transformation in property discovery.
+    </p>
+  </section>
+
+  <section class="team">
+    <h2>Meet the Team</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="https://i.pravatar.cc/150?img=11" alt="John">
+        <h4>John Verma</h4>
+        <p>Founder & CEO</p>
+      </div>
+      <div class="team-member">
+        <img src="https://i.pravatar.cc/150?img=32" alt="Priya">
+        <h4>Priya Rao</h4>
+        <p>Expo Director</p>
+      </div>
+      <div class="team-member">
+        <img src="https://i.pravatar.cc/150?img=45" alt="Anil">
+        <h4>Anil Mehta</h4>
+        <p>Partnerships Head</p>
+      </div>
+      <div class="team-member">
+        <img src="https://i.pravatar.cc/150?img=52" alt="Sara">
+        <h4>Sara Ali</h4>
+        <p>Marketing Manager</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="partners">
+    <h2>Partners & Sponsors</h2>
+    <div class="partners-grid">
+      <div class="partner">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png" alt="Amazon">
+        <p>Amazon Housing Solutions</p>
+      </div>
+      <div class="partner">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google.png" alt="Google">
+        <p>Google Real Estate Tech</p>
+      </div>
+      <div class="partner">
+      <img src="../assets/images/tata.png"  alt="Tata Group">
+      <p>Tata Group</p>
+    </div>
+    <div class="partner">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"  alt="Microsoft">
+      <p>Microsoft Azure</p>
+    </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Hyderabad Property Expo. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
